@@ -1,0 +1,50 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+<!-- Explanation section -->
+<div class="divtext">
+    <h2>Generate spreadsheets</h2>
+    <p>Fuzzy Magic also lets you generate spreadsheets with real looking data. 
+    You can use this toy data for your data analysis project or use these spreadsheets as input into the Detect or Merge functions on this web site.</p>
+</div>
+    
+    <!-- Boxes section -->
+    <div class="boxcontainer">
+        <div class="box">
+            <h2>Data for detecting duplicates</h2>
+            <p>generate a spreadsheet that contains duplicate and similar rows</p>
+            <div>
+                <img src="{{url_for('static', filename='screenshot3.png')}}" alt="img">
+            </div>
+            <div style="text-align: center; margin-bottom: 10px;">
+                <form action="/generate" method='POST'>
+                    <label for="q" style="font-size: medium;">number of rows:</label>
+                    <input type="number" min=10 max=100000 value=100 name="q" id="q" style="width:5vw;">
+                    <input type="submit" value="Generate" name="detect">
+                </form>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Data for merging spreadsheets</h2>
+            <p>generate two spreadsheets that contain duplicate and similar rows</p>
+            <div>
+                <img src="{{url_for('static', filename='screenshot4.png')}}" alt="img">
+            </div>
+            <div style="text-align: center; margin-bottom: 10px;">
+                <form action="/generate" method='POST'>
+                    <label for="q" style="font-size: medium;">number of rows:</label>
+                    <input type="number" min=10 max=100000 value=100 name="q" id="q" style="width:5vw;">
+                    <input type="submit" value="Generate" name="merge">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div style="clear:both;">
+        <p> </p>
+    </div>
+
+
+{% endblock A%}

@@ -1,0 +1,41 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+
+<!-- Q&A section -->
+<div class="divtext">
+<p><strong>What is this web application for?</strong>  &nbsp; Fuzzy Magic lets you do basic fuzzy matching operations on spreadsheets.</p>
+
+<p><strong>What is fuzzy matching?</strong> &nbsp; It is a method for finding duplicate rows in a spreadsheet that are not 100% match.</p>
+
+<p><strong>What are the basic fuzzy matching operations that this web application lets you do?</strong>  &nbsp;These are the two basic fuzzy matching operations that you typically need to perform on your spreadsheets:</p>
+</div>
+
+<!-- Boxes section -->
+<div class="boxcontainer">
+    <div class="box">
+        <h2>Detect duplicates</h2>
+        <p>detect duplicate or similar rows in your spreadsheet and sort them so that such "fuzzy" matches are grouped together</p>
+        <div>
+            <img src="{{url_for('static', filename='screenshot1.png')}}" alt="img">
+        </div>
+        <a href="/detect" class="button_link">Detect duplicates now</a> <br>
+    </div>
+    <div class="box">
+        <h2>Merge spreadsheets</h2>
+        <p>merge two spreadsheets into one so that any two duplicate or similar rows are merged into a single row</p>
+        <div>
+            <img src="{{url_for('static', filename='screenshot2.png')}}" alt="img">
+        </div>
+        <a href="/merge" class="button_link">Merge spreadsheets now</a> <br>
+    </div>
+</div>
+
+<div style="clear:both;">
+    <p> </p>
+</div>
+
+
+
+{% endblock A%}

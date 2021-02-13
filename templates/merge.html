@@ -1,0 +1,47 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+<!-- Page block for uploading files -->
+{% if not session.get('download_files') %}
+<div class="divtext">
+  <h2>Merge spreadsheets</h2>
+  <p>Merge two spreadsheets that contain duplicate and similar rows.</p>
+      <div class="box" style="box-sizing: unset;">
+        <p>Upload your csv files and click <strong>Go</strong></p>
+
+        <form action="/upload/merge" enctype="multipart/form-data" method='POST'>
+          <label for="file1">select a file:</label>
+          <input type="file" id="file1" name="file1" style="margin-bottom:10px;"> <br>
+          <label for="file2">select a file:</label>
+          <input type="file" id="file2" name="file2"> <br>
+          <input type="submit" value="Go" class="button">
+        </form>
+        <button type="button" onclick="generate(2);" class="button">Generate spreadsheets</button>
+      </div>
+
+      <div id="spinner">Working</div>
+  <p style="clear:both;">If you don't have csv files at hand, click <strong>Generate spreadsheets</strong> and then click <strong>Go</strong> to see how this technique works.</p>
+</div>
+
+
+
+
+<!-- Merger page block for downloading output files -->
+{% else %}
+
+  {% set captions = ["merged_spreadsheet.csv", "spreadsheet1.csv", "spreadsheet2.csv"] %}
+  {% set annotations = ["the merged spreadsheet", "the generated input spreadsheet", "the second generated input spreadsheet"] %}
+
+  <div class="divtext">
+    <h3>Done!</h3>
+
+  {%  for i in range(session.get('download_files') | length) %}
+    <a href="{{session.get('download_files')[i]}}" class="button_link">Download</a> {{annotations[i]}}. <br>
+  {% endfor %}
+  </div>
+
+
+{% endif %}
+
+{% endblock A%}

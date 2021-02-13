@@ -1,15 +1,7 @@
-# FUZZY MAGIC
-#### Video Demo:  <https://youtu.be/Um2bv9mir_0>
+# FUZZY SPREADSHEETS
+#### Video Demo:  <http://www.fuzzymagic.eu/>
 #### Description:
-Fuzzy matching application for spreadsheets.
-This project consists of **fuzzyspreadsheets** package written in Python and a web-based application serving as the front-end for that package. 
-
-### Note
-The **fuzzyspreadsheets** package as well as the web application based on this package, is my final project for Harvard's CS50 2020/2021.
-Currently this web application is available online at www.fuzzymagic.eu for demonstration purposes.
-
-
-The two main functions of **fuzzyspreadsheets** package are:
+Fuzzy matching utility written in Python for spreadsheets in csv format. The main two functions of this package are:
 * **detect_duplicates**: detection of (fuzzy) duplicates in a csv spreadsheet
 * **merge_spreadsheets**: detection of (fuzzy) duplicates in two csv spreadsheets
 
@@ -28,7 +20,7 @@ The result of the second function (**merge_spreadsheets**) is a new csv file wit
 |42       |124       | John      |Johannes    |Lüdermann       |Luederman        |Königstraße 12|Konig Str. 12a  |
 
 
-The package uses fuzzy matching approaches and similarity metrics such as *Levenshtein distance*, *token set ratio*, *n-grams ratio*. 
+The package uses fuzzy matching approaches and similarity metrics such as Levenshtein distance, token set ratio, n-grams ratio. 
 
 For testing and demonstration purposes this package also includes spreadsheet generating functions: **generate_spreadsheet** and **generate_spreadsheets**   
 
@@ -108,6 +100,8 @@ The default threshold is about 0.5 (which can be changed inside the code if nece
 columns_matching : float or None
 > Float between 0 and 1 denoting the ratio between *column names matching* vs. *column values distribution comparison*.
 Only used in **merge_spreadsheets** for automatic column matching between the spreadsheet serving as the left table and the one serving as the right table. The smart column matching functionality is based on *basic column names matching via similarity metrics* AND *the comparison of column values*, namely the distribution of characters in a given column. If the program fails to match columns from the two spreadsheets correctly, make sure that the input csv files have corresponding column names in both files. If the columns are arranged in the same order in both spreadsheets, you can disable this functionality by passing **columns_matching=None**. 
+The **columns_matching** ratio is the ratio between these two techniques. To improve the automatic columns matching, make sure the columns in both tables have corresponding names.
+To disable the automatic column matching and rely on the actual ordering of the columns, pass None.
 
 debugging : bool
 > If True, a report is printed, which includes:
@@ -213,45 +207,11 @@ and debugging utilities:
 > **debug_report**, **debug_detect_duplicates**, **debug_merge_spreadsheets**
 
 
-## Integration with a web based application
-The **fuzzyspreadsheets** package is the back-end of the web application [**Fuzzy Magic**](http://www.fuzzymagic.eu/). The controller of this web application is based on Flask.
-The web site has 5 pages:
-* START explains how to use the web site
-* DETECT enables the user to upload a csv file and detect duplicate rows
-* MERGE enables the user to upload two csv files and merge them into a single spreadsheet
-* GENERATE creates toy data
-* ABOUT gives a short summary of the web site
-
-## Running the web application on a local server
-In short:
-```linux
-$ cd FuzzyMagic
-$ python3 -m venv env
-$ source env/bin/activate
-$ python3 wsgi.py
-$ flask run
-```
-In detail:
-* cd into the directory of Fuzzy Magic
-* create a new Python virtual environment by running the command: **python3 -m venv env** or **python3 -m virtualenv env**
-* activate the new environment **source env/bin/activate**
-* install the required packages (including Flask) listed in **requirements.txt** or simply run **python3 wsgi.py**
-* create the environment variable required by the Flask documentation **export FLASK_APP=app.py** (mandatory if your Flask controller module is not named **app.py**)
-* run the Flask server by typing **flask run** or **python -m flask run**
+## Integration into a web based application
+This package will be used as a backend for a web page providing basic fuzzy matching functionality for spreadsheets, performed by the **detect_duplicates** and **merge_spreadsheets** functions. Flask will be used as the Controller for this web based application.
 
 
-## Deployment of the web application on a remote server
-> The following instructions work fine for the web hosting at gandi.net
-
-> Remember that your host must run Python
-
-* copy the contents of FuzzyMagic into the directory designated by your web host (on gandi.net this directory is **.../vhost/default**)
-* make sure your application has a **wsgi.py** file which will be called by the server on startup
-* the **wsgi.py** module must **import app from app as application**
-where the first 'app' is the controller module **app.py**, and the second 'app' is the variable pointing to the Flask application instance.
-
-
-### Notes
-The **fuzzyspreadsheets** package as well as the web application [**Fuzzy Magic**](http://www.fuzzymagic.eu/) (which is based on this package) is my final project for Harvard's [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science) 2020/2021.
+#### Notes:
+This utility is my final project for Harvard's CS50 2020/2021.
 Anyone is free to use and modify it.
 

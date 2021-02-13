@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Fuzzy Magic</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+
+
+    <!-- FLASHING MESSAGES -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+</head>
+<body>
+ <header>
+     <img src="{{url_for('static', filename='background.jpg')}}" alt="banner" id="banner">
+     {% include "nav.html" %}
+ </header>
+ <main>
+    {% block A %}
+    {% endblock A %}
+ </main>
+ <footer></footer>
+</body>
+</html>

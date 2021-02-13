@@ -1,0 +1,19 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+<div class="divtext">
+    <h2>Fuzzy Magic</h2>
+
+    <p>This website (as well as the back-end application) is my final project for Harvard’s <a href="https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0" target="_blank">CS50</a> online course which I took in 2020.</p>
+    <p>The back-end of this web application is a package written in Python. You can download this package:</p>
+    
+    <form action="/about" method='POST'>
+        <input type="submit" value="Download">
+    </form>
+    <p>or learn how exactly the <strong>fuzzyspreadsheets</strong> package works from <a href="/downloads/fuzzyspreadsheets/README.md">README.md</a></p>
+    <p>As for the styling on this web site, I relied on the css style and code snippets from <a href="https://www.w3schools.com/" target="_blank">www.w3schools.com</a> </p>
+    <br>
+    <p>email: contact@fuzzymagic.eu</p>
+</div>
+{% endblock A%}

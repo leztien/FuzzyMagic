@@ -1,0 +1,12 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+<div class="divtext">
+    <h3>Something went wrong</h3>
+    {% if err is defined and err %}
+        <p>{{err | safe}}</p>
+    {% endif %}
+</div>
+
+{% endblock A%}

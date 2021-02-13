@@ -1,0 +1,9 @@
+<nav>
+    <ul>
+      <li><a {% if request.endpoint == "index" %} class="active" {% endif %} href="/">START</a> </li>
+      <li><a {% if request.path == "/detect" %} class="active" {% endif %}href="/detect">DETECT</a></li>
+      <li><a {% if request.path == "/merge" %} class="active" {% endif %}href="/merge">MERGE</a></li>
+      <li><a {% if request.endpoint == "generate" %} class="active" {% endif %}href="/generate">GENERATE</a></li>
+      <li><a {% if request.endpoint == "about" %} class="active" {% endif %}href="/about">ABOUT</a></li>
+    </ul>
+</nav>

@@ -1,0 +1,5 @@
+requests
+Flask
+Flask-Mail
+Flask-Session
+MarkupSafe

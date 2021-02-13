@@ -1,0 +1,43 @@
+{% extends "layout.html"  %}
+
+{% block A%}
+
+<!-- Page block for uploading files -->
+{% if not session.get('download_files') %}
+  <div class="divtext">
+    <h2>Detect duplicates</h2>
+    <p>Detect duplicate or similar rows in your spreadsheet.</p>
+        <div class="box" style="box-sizing: unset;">
+          <p>Upload your csv file and click <strong>Go</strong></p>
+
+          <form action="/upload/detect" enctype="multipart/form-data" method='POST'>
+            <label for="file1">select a file:</label>
+            <input type="file" id="file1" name="file1"> <br>
+            <input type="submit" value="Go" class="button">
+          </form>
+          <button type="button" onclick="generate(1);" class="button">Generate spreadsheet</button>
+        </div>
+
+        <div id="spinner">Working</div>
+    <p style="clear:both;">If you don't have a csv file at hand, click <strong>Generate spreadsheet</strong> and then click <strong>Go</strong> to see how this technique works.</p>
+  </div>
+
+
+
+<!-- Merger page block for downloading output files -->
+{% else %}
+
+  {% set captions = ["sorted_duplicates.csv", "spreadsheet.csv"] %}
+  {% set annotations = ["the spreadsheet with detected and sorted duplicates", "the generated input spreadsheet"] %}
+
+  <div class="divtext">
+    <h3>Done!</h3>
+
+  {%  for i in range(session.get('download_files') | length) %}
+    <a href="{{session.get('download_files')[i]}}" class="button_link">Download</a> {{annotations[i]}}.<br>
+  {% endfor %}
+  </div>
+
+{% endif %}
+
+{% endblock A%}
