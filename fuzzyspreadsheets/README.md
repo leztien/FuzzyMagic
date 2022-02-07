@@ -1,5 +1,5 @@
 # FUZZY SPREADSHEETS
-#### Video Demo:  <http://www.fuzzymagic.eu/>
+
 #### Description:
 Fuzzy matching utility written in Python for spreadsheets in csv format. The main two functions of this package are:
 * **detect_duplicates**: detection of (fuzzy) duplicates in a csv spreadsheet
@@ -210,8 +210,4 @@ and debugging utilities:
 ## Integration into a web based application
 This package will be used as a backend for a web page providing basic fuzzy matching functionality for spreadsheets, performed by the **detect_duplicates** and **merge_spreadsheets** functions. Flask will be used as the Controller for this web based application.
 
-
-#### Notes:
-This utility is my final project for Harvard's CS50 2020/2021.
-Anyone is free to use and modify it.
 

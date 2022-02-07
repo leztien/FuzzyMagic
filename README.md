@@ -1,12 +1,10 @@
 # FUZZY MAGIC
-#### Video Demo:  <https://youtu.be/Um2bv9mir_0>
-#### Description:
-Fuzzy matching application for spreadsheets.
-This project consists of **fuzzyspreadsheets** package written in Python and a web-based application serving as the front-end for that package. 
 
-### Note
-The **fuzzyspreadsheets** package as well as the web application based on this package, is my final project for Harvard's CS50 2020/2021.
-Currently this web application is available online at www.fuzzymagic.eu for demonstration purposes.
+[**Fuzzy Magic**](http://www.fuzzymagic.eu/)
+
+#### Description:
+This is a fuzzy matching application for spreadsheets.
+This project consists of **fuzzyspreadsheets** package written in Python and a web-based application serving as the front-end for that package. The web application is available online for demonstration purposes at **www.fuzzymagic.eu**
 
 
 The two main functions of **fuzzyspreadsheets** package are:
@@ -132,7 +130,7 @@ Returns: output_filepath
 * Generation of real looking data spreadsheets (for testing and demonstration purposes. See details below)
 
 ## Mechanics of the algorithm
-The algorithm make use of three similarity functions:
+The algorithm makes use of three similarity functions:
 * Levenshtein ratio
 * token set ratio
 * n-grams ratio
@@ -250,8 +248,4 @@ In detail:
 * the **wsgi.py** module must **import app from app as application**
 where the first 'app' is the controller module **app.py**, and the second 'app' is the variable pointing to the Flask application instance.
 
-
-### Notes
-The **fuzzyspreadsheets** package as well as the web application [**Fuzzy Magic**](http://www.fuzzymagic.eu/) (which is based on this package) is my final project for Harvard's [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science) 2020/2021.
-Anyone is free to use and modify it.
 
