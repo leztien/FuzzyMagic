@@ -6,7 +6,25 @@
 This is a fuzzy matching application for spreadsheets.
 This project consists of **fuzzyspreadsheets** package written in Python and a web-based application serving as the front-end for that package. The web application is available online for demonstration purposes at **www.fuzzymagic.eu**
 
+#### Frontend:
 
+<p>
+  <img src="static/webappscreenshot1.png" width="800" />
+</p>
+<p float="left">
+  <img src="static/webappscreenshot2.png" width="400" height="185" />
+  <img src="static/webappscreenshot3.png" width="400" /> 
+</p>
+<p>
+  <img src="static/webappscreenshot4.png" width="800" />
+</p>
+
+
+
+#### Backend:
+The functionality of the web page is straight forward. Here is the explanation of how the backend functions. 
+
+The backend of this web app is the **fuzzyspreadsheets** package written in Python.
 The two main functions of **fuzzyspreadsheets** package are:
 * **detect_duplicates**: detection of (fuzzy) duplicates in a csv spreadsheet
 * **merge_spreadsheets**: detection of (fuzzy) duplicates in two csv spreadsheets
